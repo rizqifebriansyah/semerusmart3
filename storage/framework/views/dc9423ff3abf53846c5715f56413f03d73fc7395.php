@@ -1,8 +1,8 @@
 
 <?php $__env->startSection('container'); ?>
-<div class="container-fluid" style="margin-top:90px">
+<div class="container-fluid" style="margin-top:130px">
         <div id="tabelpasien" class="container" >
-            <p>Data Pasien</p>
+            <p class="text-lg text-bold">Data Pasien</p>
             <table id="datapasien" class="table table-sm text-xs table-bordered table-hover">
                 <thead>
                     <th>Kode kunjungan</th>

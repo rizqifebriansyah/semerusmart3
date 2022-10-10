@@ -64,12 +64,13 @@
             <p>Harap Tunggu</p>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:rgb(71, 214, 143);  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:rgb(15, 144, 79);  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="container">
-            <a class="navbar-brand" href="#" style="font-family:Lucida Console">
-                <img src="<?php echo e(asset('public/semeru/dist/img/logo_rs.png')); ?>" width="45" height="40" class="d-inline-block align-top mr-3" alt="">
-                Semerusmart
-            </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <a class="navbar-brand text-light">
+                <img src="<?php echo e(asset('public/img/semeru.png')); ?>" width="360" height="60"
+                    class="d-inline-block align-top ml-2 mr-2" alt="">
+            </a>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -77,8 +78,8 @@
                 <ul class="navbar-nav ">
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            <?php echo e(auth()->user()->nama); ?>
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <?php echo e(strtoupper(auth()->user()->name)); ?>
 
                         </a>
                         <div class="dropdown-menu">
