@@ -1,6 +1,6 @@
     <div class="card scroll container">
         <div class="card-header">
-            RM.02.01-RJ / Rev.02 / 19 ( Pasien Anak - anak ( Pasien Baru ))
+            RM.02.01-RJ / Rev.02 / 19 ( Pasien Anak - anak ( Pasien Baru banget))
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
                 </button>
