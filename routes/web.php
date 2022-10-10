@@ -5,10 +5,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ErmController;
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/', [LoginController::class, 'index']);
+Route::post('login', [LoginController::class, 'authenticate'])->middleware('guest')->name('login');
+Route::post('register', [LoginController::class, 'register'])->middleware('guest')->name('register');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard2');
 Route::get('/erm', [ErmController::class, 'index'])->name('erm');
 Route::post('/ermform', [ErmController::class, 'formpasien'])->name('ermform');
