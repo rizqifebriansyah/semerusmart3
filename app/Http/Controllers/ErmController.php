@@ -175,7 +175,7 @@ class ErmController extends BaseController
             'no_rm' => $dataSet['rm'],
             'sumber_data' => $dataSet['sumberdata_pasienbaru'],
             'keluhan_utama' => $dataSet['keluhanutama_pasienbaru'],
-            'ttv_tekanan_darah' => 120,
+            'ttv_tekanan_darah' => $dataSet['tekanandarah_pasienbaru'],
             'ttv_freq_napas' => $dataSet['frekuensinapas_pasienbaru'],
             'ttv_freq_nadi' => $dataSet['frekuensinadi_pasienbaru'],
             'ttv_suhu' => $dataSet['suhu_pasienbaru'],
