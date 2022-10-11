@@ -9,6 +9,8 @@ Route::get('/', [LoginController::class, 'index']);
 Route::post('login', [LoginController::class, 'authenticate'])->middleware('guest')->name('login');
 Route::post('register', [LoginController::class, 'register'])->middleware('guest')->name('register');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('cariunit', [ErmController::class, 'cariunit'])->name('cariunit');
+Route::post('tampilcppt', [ErmController::class, 'tampilcppt'])->name('tampilcppt');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard2');
@@ -23,4 +25,5 @@ Route::post('/simpanrmanak', [ErmController::class, 'simpanrmanak'])->name('simp
 Route::post('/simpanformlab', [ErmController::class, 'simpanformlab'])->name('simpanformlab');
 Route::post('/simpanradiologi', [ErmController::class, 'simpanradiologi'])->name('simpanradiologi');
 Route::post('/simpanlayanan', [ErmController::class, 'simpanlayanan'])->name('simpanlayanan');
+Route::get('/caritarif', [ErmController::class, 'caritarif'])->name('caritarif');
 Route::get('/caritarif', [ErmController::class, 'caritarif'])->name('caritarif');

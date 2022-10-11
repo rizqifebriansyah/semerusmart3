@@ -22,6 +22,24 @@ class ErmController extends BaseController
             'pasien' => $pasien_poli
         ]);
     }
+    public function cariunit(Request $request)
+    {
+        $result = DB::table('mt_unit')->where('nama_unit', 'LIKE', '%' . $request['term'] . '%')->get();
+        if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = array(
+                    'label' => $row->nama_unit,
+                    'kode' => $row->kode_unit,
+                );
+            echo json_encode($arr_result);
+        }
+    }
+    public function tampilcppt(Request $request)
+    {
+        return view('erm.cppt', [
+            'ass_kep' =>  DB::select('SELECT * from erm_assesmen_keperawatan_rajal WHERE no_rm = ?',[$request->nomorrm])
+        ]);
+    }
     public function formpasien(request $request)
     {
         $nomorrm = $request->rm;

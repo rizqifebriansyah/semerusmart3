@@ -27,7 +27,7 @@
             </table>
         </div>
 
-        <div id="pasienterpilih" class="card pasienterpilih">
+        <div style="display:none" id="pasienterpilih" class="card pasienterpilih">
             
         </div>
         <!-- /.card -->

@@ -37,14 +37,14 @@ class LoginController extends BaseController
         $validateData = $request->validate([
             'name' => 'required',
             'username1' => 'required|min:5|max:20|unique:users_semerusmart,username',
-            'unit' => 'required',
+            'kodeunit' => 'required',
             'password1' => 'required|min:5'
         ]);
         $pass = bcrypt($validateData['password1']);
         $data = [
             'name' => $request->name,
             'username' => $request->username1,
-            'unit' => $request->unit,
+            'unit' => $request->kodeunit,
             'password' => $pass
         ];
         User::create($data);

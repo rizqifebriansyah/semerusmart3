@@ -34,7 +34,7 @@
       });
       $(function() {
           $("#datapasien").DataTable({
-              "responsive": true,
+              "responsive": false,
               "lengthChange": false,
               "pageLength": 5,
               "autoWidth": false,
@@ -52,7 +52,9 @@
         tglmasuk = $(this).attr('tglmasuk')
         counter = $(this).attr('counter')
         umur = $(this).attr('umur')
-        $('#tabelpasien').attr('hidden',true)       
+        $(".pasienterpilih").slideToggle("slow");
+        document.getElementById("tabelpasien").style.display = "none";
+        // $('#tabelpasien').attr('hidden',true)       
         $.ajax({
                 type: 'post',
                 data: {
@@ -80,10 +82,10 @@
     });
     function batalpilih()
     {
-        location.reload()
+        $("#tabelpasien").slideToggle("slow");
+        document.getElementById("pasienterpilih").style.display = "none";
     }
     function tstload(){
-        alert('a')
         spinner = $('#loader2');
         spinner.show();
     }

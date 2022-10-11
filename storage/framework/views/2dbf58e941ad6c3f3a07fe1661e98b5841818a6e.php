@@ -21,15 +21,18 @@
         .bg-black {
             color: black
         }
+
         .card-registration .select-input.form-control[readonly]:not([disabled]) {
             font-size: 1rem;
             line-height: 2.15;
             padding-left: .75em;
             padding-right: .75em;
         }
+
         .card-registration .select-arrow {
             top: 13px;
         }
+
         .preloader2 {
             position: fixed;
             top: 0;
@@ -40,6 +43,7 @@
             background-color: #fff;
             opacity: 0.9;
         }
+
         .preloader2 .loading {
             position: absolute;
             left: 50%;
@@ -49,10 +53,11 @@
         }
     </style>
 </head>
+
 <body style="background: url('public/img/bg-hs.png') no-repeat fixed center;background-size: 1600px 900px;">
     <div class="preloader2" id="loader2">
         <div class="loading">
-            <img src="<?php echo e(asset("public/img/loader.gif")); ?>" width="680">
+            <img src="<?php echo e(asset('public/img/loader.gif')); ?>" width="680">
         </div>
     </div>
     <!-- Image and text -->
@@ -104,7 +109,8 @@ unset($__errorArgs, $__bag); ?>"
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <button class="btn btn-success btn-sm shadow-lg" style="margin-top:32px">Login</button>
+                                    <button class="btn btn-success btn-sm shadow-lg"
+                                        style="margin-top:32px">Login</button>
                                 </div>
                             </div>
                         </div>
@@ -127,12 +133,12 @@ unset($__errorArgs, $__bag); ?>"
                             <div class="card-body p-md-2 text-black">
                                 <h3 class="mb-2 text-uppercase">Registrasi Akun </h3>
                                 <?php if(session()->has('success')): ?>
-                                <div class="alert alert-success" role="alert">
-                                    <?php echo e(session('success')); ?>
+                                    <div class="alert alert-success" role="alert">
+                                        <?php echo e(session('success')); ?>
 
-                                  </div>                                
+                                    </div>
                                 <?php endif; ?>
-                                  
+
                                 <form action="<?php echo e(route('register')); ?>" method="post">
                                     <?php echo csrf_field(); ?>
                                     <div class="form-outline mb-1">
@@ -185,8 +191,7 @@ unset($__errorArgs, $__bag); ?>
                                     </div>
                                     <div class="form-outline mb-1">
                                         <label class="form-label" for="form3Example99">Unit</label>
-                                        <input type="text" id=""
-                                            class="form-control form-control-sm <?php $__errorArgs = ['unit'];
+                                        <input class="form-control form-control-sm <?php $__errorArgs = ['unit'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -194,7 +199,16 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                            name="unit" required />
+                                            name="unit" id="unit" required />
+                                        <input hidden class="form-control form-control-sm <?php $__errorArgs = ['unit'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                            name="kodeunit" id="kodeunit" required />
                                         <?php $__errorArgs = ['unit'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -237,29 +251,39 @@ unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </form>
                             </div>
-                            <div class="card-footer text-center"><p class="text-muted">@semerusmartV2</p></div>
+                            <div class="card-footer text-center">
+                                <p class="text-muted">@semerusmartV2</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
- 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
-    </script>
-<!-- jQuery -->
-<script src="<?php echo e(asset('public/semeru/plugins/jquery/jquery.min.js')); ?>"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo e(asset('public/semeru/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
-<!-- semeru App -->
-<script src="<?php echo e(asset('public/semeru/dist/js/adminlte.min.js')); ?>"></script>
-<script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="<?php echo e(asset('public/semeru/dist/js/jquery-3.js')); ?>"></script>
+    <script src="<?php echo e(asset('public/semeru/dist/js/jquery-ui.min.js')); ?>"></script>
+
+    <!-- jQuery -->
+    <!-- Bootstrap 4 -->
+    <script src="<?php echo e(asset('public/semeru/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+    <!-- semeru App -->
+    <script src="<?php echo e(asset('public/semeru/dist/js/adminlte.min.js')); ?>"></script>
+    <script>
         $(".preloader2").fadeOut();
-</script>
+        $(document).ready(function() {
+            $('#unit').autocomplete({
+                source: "<?= route('cariunit') ?>",
+                select: function(event, ui) {
+                    $('[id="unit"]').val(ui.item.label);
+                    $('[id="kodeunit"]').val(ui.item.kode);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
