@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <table class="table table-sm table-bordered text-xs">
                    <thead>
-                    <th>Tgl / Jam</th>
+                    <th>Tanggal / Jam</th>
                     <th>Profesi</th>
                     <th class="text-center">Hasil Pemeriksaan, Analisa, Rencana, Penatalaksanaan Pasien ( Ditulis dengan format SOAP, disertai target yang terukur, evaluasi hasil, tata laksana dituliskan dalam assesmen.</th>
                    </thead>
