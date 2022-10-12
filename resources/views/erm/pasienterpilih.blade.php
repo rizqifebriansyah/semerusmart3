@@ -1,14 +1,23 @@
 <div class="container-fluid text-xs">
     <div class="row mt-3">
-        <div class="col-md-4">
+        <div class="col-md-1">
             <h2>
                 <button class="btn btn-sm btn-danger" onclick="batalpilih()"><i
                         class="bi bi-backspace mr-2"></i>Kembali</button>
             </h2>
         </div>
+        <div class="col-md-3">
+            <div class="alert alert-info" role="">
+                @if ($counter == 1)
+                <p class="text-bold text-sm"> Pasien baru , kunjungan pertama ! </p>
+                @else
+                <p class="text-bold text-sm"> Pasien lama, Kunjungan ke-{{ $counter }} </p>
+                @endif
+            </div>
+        </div>
         <div class="col-md-8">
             <table class="table table-sm table-striped table-hover shadow-sm table-bordered">
-                <thead>
+                <thead class="bg-info">
                     <th>Nomor RM</th>
                     <th>Nama</th>
                     <th>Umur</th>
@@ -33,13 +42,8 @@
             </table>
         </div>
     </div>
-    <div class="alert alert-info" role="alert">
-        @if ($counter == 1)
-            <p class="text-bold text-sm"> Pasien baru , kunjungan pertama ! </p>
-        @else
-            <p class="text-bold text-sm"> Pasien lama, Kunjungan ke-{{ $counter }} </p>
-        @endif
-    </div <div class="card-header p-2">
+    
+     <div class="card-header p-2">
     <ul class="nav nav-pills">
         <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Riwayat Pelayanan / Tindakan
                 Medis</a>

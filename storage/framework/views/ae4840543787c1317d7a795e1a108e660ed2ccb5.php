@@ -53,6 +53,9 @@
             max-height: 500px;
             overflow-y: auto;
         }
+        .form-check-input {
+            transform: scale(1.5);
+        }
         /* .tab_content {display:none;} */
     </style>
 </head>

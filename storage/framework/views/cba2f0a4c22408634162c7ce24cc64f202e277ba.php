@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <table class="table table-sm table-bordered text-xs">
                    <thead>
-                    <th>Tgl / Jam</th>
+                    <th>Tanggal / Jam</th>
                     <th>Profesi</th>
                     <th class="text-center">Hasil Pemeriksaan, Analisa, Rencana, Penatalaksanaan Pasien ( Ditulis dengan format SOAP, disertai target yang terukur, evaluasi hasil, tata laksana dituliskan dalam assesmen.</th>
                    </thead>
@@ -22,15 +22,35 @@
                                 frekuensi nadi <?php echo e($d->ttv_freq_nadi); ?> <br>
                                 suhu badan <?php echo e($d->ttv_suhu); ?> <br><br>                           
                                 
-                                <p class="text-bold">Rencana Keperawatan</p>                           
-                                    <?php echo e($d->rencana_perawat); ?>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-bold">Rencana Keperawatan</p>                           
+                                            <?php echo e($d->rencana_perawat); ?>
 
-                                <p class="text-bold">Tindakan Keperawatan</p>                           
-                                    <?php echo e($d->tindakan_perawat); ?>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-bold">Tindakan Keperawatan</p>                           
+                                            <?php echo e($d->tindakan_perawat); ?>
 
-                                <p class="text-bold">Evaluasi Keperawatan</p>                           
-                                    <?php echo e($d->evaluasi_perawat); ?>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-bold">Evaluasi Keperawatan</p>                           
+                                            <?php echo e($d->evaluasi_perawat); ?>
 
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">Tanda tangan perawat</div>
+                                    <div class="card-body">                                    
+                                                <img src="<?php echo e($d->ttd_perawat); ?>" alt=""> 
+                                    </div> 
+                                    <div class="card-footer"></div>                                                         
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

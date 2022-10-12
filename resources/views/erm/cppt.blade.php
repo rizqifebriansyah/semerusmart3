@@ -24,12 +24,32 @@
                                 {{-- Riwayat Psikologis -> {{ $d->riwayat_Psikologis }} <br>                           
                                 Status Fungsi Alat Bantu -> {{ $d->stafungsi_Alatbantu }} <br>                           
                                 Cacat Tubuh -> {{ $d->stafungsi_cacattubuh }} <br><br> --}}
-                                <p class="text-bold">Rencana Keperawatan</p>                           
-                                    {{ $d->rencana_perawat }}
-                                <p class="text-bold">Tindakan Keperawatan</p>                           
-                                    {{ $d->tindakan_perawat }}
-                                <p class="text-bold">Evaluasi Keperawatan</p>                           
-                                    {{ $d->evaluasi_perawat }}
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-bold">Rencana Keperawatan</p>                           
+                                            {{ $d->rencana_perawat }}
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-bold">Tindakan Keperawatan</p>                           
+                                            {{ $d->tindakan_perawat }}
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-bold">Evaluasi Keperawatan</p>                           
+                                            {{ $d->evaluasi_perawat }}
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">Tanda tangan perawat</div>
+                                    <div class="card-body">                                    
+                                                <img src="{{ $d->ttd_perawat }}" alt=""> 
+                                    </div> 
+                                    <div class="card-footer"></div>                                                         
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

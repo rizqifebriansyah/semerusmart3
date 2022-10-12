@@ -72,7 +72,6 @@
                 error: function(data) {
                     spinner.hide();
                    alert('error')
-
                 },
                 success: function(response) {
                     spinner.hide();
