@@ -51,7 +51,7 @@
                 <td>Frekuensi Nadi</td>
                 <td>
                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" class="form-control form-control-sm" />
+                        <input type="text" name="frekuensinadi_pasienlama" id="frekuensinadi_pasienlama" class="form-control form-control-sm" />
                         <div class="input-group-append">
                             <div class="input-group-text text-xs">X / Menit</div>
                         </div>
@@ -237,7 +237,7 @@
                 <tr>
                     <td colspan="2">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input ml-2 mr-3" type="radio" name="skrininggizi_pasienlama" id="skrininggizi_pasienlama" value="2 | Tidak yakin/tidak tahu">
+                            <input class="form-check-input ml-2 mr-3" type="radio" name="skrininggizi_pasienlama1" id="skrininggizi_pasienlama1" value="2 | Tidak yakin/tidak tahu">
                             <label class="form-check-label" for="inlineRadio1">Tidak yakin / tidak tahu / terasa baju lebih
                                 longgar</label>
                         </div>
@@ -246,17 +246,21 @@
                 <tr>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input ml-2 mr-3" type="radio" name="skrininggizi_pasienlama" id="skrininggizi_pasienlama" value="3 | Ya">
+                            <input class="form-check-input ml-2 mr-3" type="radio" name="skrininggizi_pasienlama2" id="skrininggizi_pasienlama2" value="3 | Ya">
                             <label class="form-check-label" for="inlineRadio1">Jika YA,berapa berat badan tersebut</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
+                            <input class="form-check-input ml-2 mr-1" type="radio" name="beratskrininggizi_pasienbaru" id="beratskrininggizi_pasienbaru" value="Tidak" checked>
+                            <label class="form-check-label" for="inlineRadio1" checked>Tidak</label>
+                        </div>
+                        <div class="form-check form-check-inline">
                             <input class="form-check-input ml-2 mr-1" type="radio" name="skrininggizi_pasienlama" id="skrininggizi_pasienlama" value="1 | 1 - 5 Kg">
                             <label class="form-check-label" for="inlineRadio1">1 - 5 Kg</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input mr-1" type="radio" name="skrininggizi_pasienlama" id="skrininggizi_pasienlama" value="2 | 6 - 10 Kg">
+                            <input class="form-check-input mr-1" type="radio" name="skrininggizi_pasienlama" id="skrininggizi_pasienlama3" value="2 | 6 - 10 Kg">
                             <label class="form-check-label" for="inlineRadio2">6 - 10 Kg</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -373,6 +377,32 @@
 
             </tbody>
         </table>
+        <table class="table table-sm text-xs">
+            <tr>
+                <td>Tanggal Assesmen Perawat</td>
+                <td>Nama Perawat</td>
+                <td>Tanda Tangan Dokter</td>
+            </tr>
+            <tr>
+                <td><textarea name="tanggal_assesmen" id="tanggal_assesmen" cols="50" rows="10"> <?php echo e($now); ?></textarea></td>
+
+                <td><textarea name="nama_perawat" id="nama_perawat" cols="50" rows="10"><?php echo e(strtoupper(auth()->user()->name)); ?></textarea></td>
+                <td>
+                    <div id="signature-pad">
+                        <div style="border:solid 1px teal; width:360px;height:110px;padding:3px;position:relative;">
+                            <div id="note" onmouseover="my_function();">tulis tanda tangan didalam box ...
+                            </div>
+                            <canvas id="the_canvas" width="350px" height="100px"></canvas>
+                        </div>
+                        <div style="margin:10px;">
+                            <input type="hidden" id="signature" name="signature">
+                            <button type="button" id="clear_btn" class="btn btn-danger" data-action="clear"><span class="glyphicon glyphicon-remove"></span>
+                                Clear</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <div class="col-md-12 justify-content-end mb-2">
             <button type="button" class="btn btn-success float-right mr-2 tombolsimpanrm2lama">Simpan</button>
         </div>
@@ -429,4 +459,20 @@
             });
         });
     });
-</script><?php /**PATH C:\xampp\htdocs\semerusmart\resources\views/erm/form2.blade.php ENDPATH**/ ?>
+</script>
+<script>
+    var wrapper = document.getElementById("signature-pad");
+    var clearButton = wrapper.querySelector("[data-action=clear]");
+    var canvas = wrapper.querySelector("canvas");
+    var el_note = document.getElementById("note");
+    var signaturePad;
+    signaturePad = new SignaturePad(canvas);
+    clearButton.addEventListener("click", function(event) {
+        document.getElementById("note").innerHTML = "The signature should be inside box";
+        signaturePad.clear();
+    });
+
+    function my_function() {
+        document.getElementById("note").innerHTML = "";
+    }
+</script><?php /**PATH C:\xampp\htdocs\semerusmart3\resources\views/erm/form2.blade.php ENDPATH**/ ?>
