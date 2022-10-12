@@ -368,7 +368,7 @@
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input ml-2 mr-1" type="radio" name="beratskrininggizi_pasienbaru" id="beratskrininggizi_pasienbaru" value="Tidak">
+                            <input class="form-check-input ml-2 mr-1" type="radio" name="beratskrininggizi_pasienbaru" id="beratskrininggizi_pasienbaru" value="Tidak" checked>
                             <label class="form-check-label" for="inlineRadio1" checked>Tidak</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -499,8 +499,34 @@
                         <textarea name="evaluasikeperawatan" class="form-control" placeholder="ketik evaluasi keperawatan ..."></textarea>
                     </td>
                 </tr>
-            </tbody>
+                </tbody>
         </table>
+                <table class="table table-sm text-xs">
+                    <tr>
+                        <td>Tanggal Assesmen Perawat</td>
+                        <td>Nama Perawat</td>
+                        <td>Tanda Tangan Dokter</td>
+                    </tr>
+                <tr>
+                    <td><textarea name="tanggal_assesmen" id="tanggal_assesmen" cols="50" rows="10"> <?php echo e($now); ?></textarea></td>
+                            
+                    <td><textarea name="nama_perawat" id="nama_perawat" cols="50" rows="10"><?php echo e(strtoupper(auth()->user()->name)); ?></textarea></td>
+                    <td>
+                        <div id="signature-pad">
+                            <div style="border:solid 1px teal; width:360px;height:110px;padding:3px;position:relative;">
+                                <div id="note" onmouseover="my_function();">tulis tanda tangan didalam box ...
+                                </div>
+                                <canvas id="the_canvas" width="350px" height="100px"></canvas>
+                            </div>
+                            <div style="margin:10px;">
+                                <input type="hidden" id="signature" name="signature">
+                                <button type="button" id="clear_btn" class="btn btn-danger" data-action="clear"><span class="glyphicon glyphicon-remove"></span>
+                                    Clear</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </table>
         <div class="col-md-12 justify-content-end mb-2">
             <button type="button" class="btn btn-success float-right mr-2 tombol-simpanrm2">Simpan</button>
         </div>
@@ -557,4 +583,20 @@
             });
         });
     });
+</script>
+<script>
+    var wrapper = document.getElementById("signature-pad");
+    var clearButton = wrapper.querySelector("[data-action=clear]");
+    var canvas = wrapper.querySelector("canvas");
+    var el_note = document.getElementById("note");
+    var signaturePad;
+    signaturePad = new SignaturePad(canvas);
+    clearButton.addEventListener("click", function(event) {
+        document.getElementById("note").innerHTML = "The signature should be inside box";
+        signaturePad.clear();
+    });
+
+    function my_function() {
+        document.getElementById("note").innerHTML = "";
+    }
 </script><?php /**PATH C:\xampp\htdocs\semerusmart3\resources\views/erm/form1.blade.php ENDPATH**/ ?>

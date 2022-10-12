@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-header">CATATAN PERKEMBANGAN PASIEN TERINTEGRASI</div>
+    <div class="card-header">CATATAN PERKEMBANGAN PASIEN TERINTEGRASI ( CPPT )</div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">

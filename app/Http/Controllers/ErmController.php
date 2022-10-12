@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\assesmenawal;
+use App\Models\assemenawalmedis;
 
 
 class ErmController extends BaseController
@@ -175,7 +176,7 @@ class ErmController extends BaseController
             'no_rm' => $dataSet['rm'],
             'sumber_data' => $dataSet['sumberdata_pasienbaru'],
             'keluhan_utama' => $dataSet['keluhanutama_pasienbaru'],
-            'ttv_tekanan_darah' => 120,
+            'ttv_tekanan_darah' => $dataSet['tekanandarah_pasienbaru'],
             'ttv_freq_napas' => $dataSet['frekuensinapas_pasienbaru'],
             'ttv_freq_nadi' => $dataSet['frekuensinadi_pasienbaru'],
             'ttv_suhu' => $dataSet['suhu_pasienbaru'],
@@ -191,6 +192,9 @@ class ErmController extends BaseController
             'tindakan_perawat' => $dataSet['tindakankeperawatan'],
             'rencana_perawat' => $dataSet['rencanakeperawatan'],
             'evaluasi_perawat' => $dataSet['evaluasikeperawatan'],
+            'tgl_selesai' => Carbon::now()->timezone('Asia/Jakarta'),
+            'id_perawat' => $dataSet['nama_perawat'],
+            'ttd_perawat' => $dataSet['signature'],
         ];
 
         $erm_assesmen = assesmenawal::create($data);
@@ -228,6 +232,34 @@ class ErmController extends BaseController
                 die;
             }
         }
+        $data = [
+            'tglwaktu_assesmen' => $dataSet['tgldanjamkunjungan_pasienlama'],
+            'kode_kunjungan' => $dataSet['kode_kunjungan'],
+            'no_rm' => $dataSet['rm'],
+            'sumber_data' => $dataSet['sumberdata_pasienlama'],
+            'keluhan_utama' => $dataSet['keluhanutama_pasienlama'],
+            'ttv_tekanan_darah' => $dataSet['tekanandarah_pasienlama'],
+            'ttv_freq_napas' => $dataSet['frekuensinapas_pasienlama'],
+            'ttv_freq_nadi' => $dataSet['frekuensinadi_pasienlama'],
+            'ttv_suhu' => $dataSet['suhu_pasienlama'],
+            'riwayat_psikologis' => $dataSet['RP_pasienlama'],
+            'stafungsi_Alatbantu' => $dataSet['alatbantu_pasienlama'],
+            'stafungsi_cacattubuh' => $dataSet['cacat_pasienlama'],
+            'assesmen_nyeri' => $dataSet['skalanyeripasienlama'],
+            'assesmen_resikojatuh' => $dataSet['resikojatuh_pasienlama'],
+            'Skri_gizi_1' => $dataSet['skrininggizi_pasienlama1'],
+            'Skri_gizi_2' => $dataSet['skrininggizi_pasienlama2'],
+            'Skri_gizi_3' => $dataSet['skrininggizi_pasienlama3'],
+            'dia_perawat' => $dataSet['diagnosakeperawatan'],
+            'tindakan_perawat' => $dataSet['tindakankeperawatan'],
+            'rencana_perawat' => $dataSet['rencanakeperawatan'],
+            'evaluasi_perawat' => $dataSet['evaluasikeperawatan'],
+            'tgl_selesai' => $dataSet['tanggal_assesmen'],
+            'id_perawat' => $dataSet['nama_perawat'],
+            'ttd_perawat' => $dataSet['signature'],
+        ];
+
+        $erm_assesmen_awal = assesmenawal::create($data);
 
         $data = [
             'kode_kunjungan' => $dataSet['kodekunjungan']
@@ -238,7 +270,6 @@ class ErmController extends BaseController
         ];
         echo json_encode($data);
         die;
-        dd($data);
     }
     public function simpanrmanak(Request $request)
     {
